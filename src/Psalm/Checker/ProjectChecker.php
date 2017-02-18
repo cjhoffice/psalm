@@ -312,7 +312,7 @@ class ProjectChecker
 
                 $node = FileProvider::getNodeAtPosition(
                     $file_checker->getStatements(),
-                    new \LanguageServer\Protocol\Position(191, 19)
+                    new \Psalm\LanguageServer\Protocol\Position(191, 19)
                 );
 
                 var_dump($node);
