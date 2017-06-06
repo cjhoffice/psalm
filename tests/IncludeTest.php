@@ -144,7 +144,9 @@ class IncludeTest extends TestCase
                             }
                         }
 
-                        class C {}',
+                        class C {
+                            public function barBar() : void { }
+                        }',
                     getcwd() . DIRECTORY_SEPARATOR . 'file2.php' => '<?php
                         require_once("file1.php");
 
@@ -152,7 +154,11 @@ class IncludeTest extends TestCase
                             public function fooFoo() : void { }
                         }
 
-                        new C();',
+                        class D extends C {
+                            public function doBar() : void {
+                                $this->barBar();
+                            }
+                        }',
                 ],
                 'files_to_check' => [
                     getcwd() . DIRECTORY_SEPARATOR . 'file1.php',
